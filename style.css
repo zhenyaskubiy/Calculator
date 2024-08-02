@@ -1,0 +1,79 @@
+.calc{
+    margin: 50px auto;
+    width: 300px;
+    height: 500px;
+    /*border: 1px solid #000;*/
+    border-radius: 20px;
+    background-color: black;
+    color:#fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 18px;
+    box-shadow: 4px 4px 4px #4f4f4f;
+}
+
+.calc-screen{
+    height: 125px;
+    padding: 10px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.calc-screen p{
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+    margin-right: 8px;
+}
+
+.buttons{
+    display: grid;
+    grid-gap: 7px;
+    grid-template-areas: 
+    "AC plus-minus percent division"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero zero koma equal";
+    justify-items: center;
+}
+
+.btn{
+    width: 60px;
+    height: 60px;
+    background-color: #4f4f4f;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0px 0px 5px 1px rgb(59, 55, 59);
+
+}
+
+.btn.zero{
+    grid-area: zero;
+    width: 100%;
+    border-radius: 35px;
+}
+
+.btn:hover{
+    filter: brightness(120%);
+    box-shadow:  rgb(228, 217, 228);
+    box-shadow: 0px 0px 10px 2px rgb(255, 255, 255);
+    transform: scale(1.1);
+}
+
+.btn:active{
+    filter: brightness(90%)
+}
+
+.btn.bg-grey{
+    background: #9e9e9e;
+}
+/*ладно не зовсім оранж*/
+.btn.bg-orange{
+    background: #6b014b;
+}
