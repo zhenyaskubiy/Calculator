@@ -4,7 +4,7 @@ let sign = ''; //знак операції
 let finish = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'x', '/'];
+const action = ['-', '+', 'x', '/', '%', '+/-'];
 
 //екран
 const out = document.querySelector('.calc-screen p');
@@ -50,12 +50,24 @@ document.querySelector('.buttons').onclick = (event) => {
 
     // якщо натиснутий + - х / ,
     if(action.includes(key)) {
+
+       if (key === '%') {
+                a = parseFloat(a) / 100;
+                out.textContent = a;
+                finish = true;
+                console.log(a, b, sign);
+                return;
+       }
+
+       if(key === '+/-'){
+                // допрацюй цю частину коду
+       }
+
         sign = key;
         out.textContent = sign;
         console.log(a, b, sign);
         return;
     }
-
     //натиснута дорівнює
     if(key === '='){
         if(b ==='') b = a;
@@ -77,11 +89,20 @@ document.querySelector('.buttons').onclick = (event) => {
                     sign = '';
                     return;
                 }
-         
-
             a = a / b;
             break;
+            case '%':
+                a = a - (a * b / 100).toString();
+                break;
         }
+
+        if (a.toString().includes('.') && a.toString().split('.')[1].length > 6) {
+            a = parseFloat(parseFloat(a).toFixed(6));
+        }
+        
+        if(a == a + '%') a / 100;
+
+
         finish = true;
         out.textContent = a;
         console.log(a, b, sign);
