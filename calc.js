@@ -59,9 +59,23 @@ document.querySelector('.buttons').onclick = (event) => {
                 return;
        }
 
-       if(key === '+/-'){
-                // допрацюй цю частину коду
-       }
+        // if clicked +/-
+    if (key === '+/-') {
+        if (b === '' && sign === '') {
+            a = (parseFloat(a) * -1).toString();
+            out.textContent = a;
+        } else if (a !== '' && b !== '' && finish) {
+            b = (parseFloat(b) * -1).toString();
+            out.textContent = b;
+        } else {
+            b = (parseFloat(b) * -1).toString();
+            out.textContent = b;
+        }
+        console.log(a, b, sign);
+        return;
+    }
+    
+
 
         sign = key;
         out.textContent = sign;
@@ -102,7 +116,7 @@ document.querySelector('.buttons').onclick = (event) => {
         
         if(a == a + '%') a / 100;
 
-
+        
         finish = true;
         out.textContent = a;
         console.log(a, b, sign);
